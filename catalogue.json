@@ -1,0 +1,18 @@
+{
+  "nom_bibliotheque": "Bibliothèque Municipale",
+  "liste_livres": [
+    {
+      "type_livre": "Livre",
+      "titre_livre": "Le problème à 3 corps",
+      "nom_auteur": "Liu Cixin",
+      "numero_isbn": "978-0765377067"
+    },
+    {
+      "type_livre": "LivreNumerique",
+      "titre_livre": "1984",
+      "nom_auteur": "George Orwell",
+      "numero_isbn": "978-0451524935",
+      "taille_fichier_mo": 2.5
+    }
+  ]
+}
