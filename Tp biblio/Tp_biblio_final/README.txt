@@ -1,39 +1,18 @@
-# TP Bibliothèque Python
+Ce TP consiste à développer une petite application Python qui permet de gérer une bibliothèque. L’objectif est d’apprendre de manière concrète plusieurs notions du cours : la programmation orientée objet avec des classes et de l’héritage (Livre, LivreNumérique, Bibliothèque), la sauvegarde et la restauration des données avec Pickle, la lecture et l’écriture de fichiers CSV pour manipuler des données tabulaires, la gestion des exceptions en Python (y compris la création de ses propres exceptions), et l’organisation d’un projet en modules et packages avec des imports relatifs.
 
-## Présentation
-Ce TP illustre la mise en place d'une application de gestion de bibliothèque en Python :
-- Classes et héritage (Livre, LivreNumérique, Bibliothèque)
-- Sérialisation/désérialisation (Pickle)
-- Lecture et écriture de données tabulaires (CSV)
-- Gestion d'exceptions personnalisées
-- Structure modulaire avec packages et imports relatifs
+Le code est organisé dans un package Python appelé bibliotheque_app. On y trouve les fichiers suivants :
+– init.py qui marque le dossier comme package Python
+– models.py qui définit les classes Livre, LivreNumérique et Bibliothèque
+– file_manager.py qui gère la lecture et l’écriture des données en CSV et Pickle
+– exceptions.py qui contient les exceptions personnalisées comme ErreurBibliotheque
+– main.py qui est le point d’entrée de l’application, pour créer et tester la bibliothèque
 
-## Structure des fichiers
-```
-bibliotheque_app/
-    __init__.py          # Déclare le package
-    models.py            # Définit les classes Livre, LivreNumérique et Bibliothèque
-    file_manager.py      # BibliothèqueAvecFichier : gestion des CSV et Pickle
-    exceptions.py        # Exceptions personnalisées (ErreurBibliotheque...)
-    main.py              # Point d'entrée : instancie, teste et exécute l'app
-```
-Un fichier `tp_biblio_original.py` contient votre ancien code pour référence.
+Le script principal crée une bibliothèque, ajoute des livres papier et numériques, sauvegarde les données en CSV et Pickle, puis recharge les fichiers et affiche le contenu à l’écran.
 
-## Exécution
-Depuis VS Code ou un terminal :
-```
-cd "Tp biblio"
-python -m bibliotheque_app.main
-```
-Cela exécute le script principal qui :
-- Ajoute des livres à la bibliothèque
-- Sauvegarde en CSV et Pickle
-- Recharge les données et les affiche
-
-## Notions couvertes
-- Modules et packages Python
-- Imports relatifs
-- Sérialisation avec Pickle
-- Lecture/écriture CSV
-- Gestion des exceptions (try/except/else/finally)
-- Exceptions personnalisées (raise)
+Ce projet permet de mettre en pratique :
+– L’organisation d’un projet Python en modules et packages
+– L’utilisation des imports relatifs
+– La sérialisation et désérialisation d’objets avec Pickle
+– La lecture et l’écriture de données tabulaires avec CSV
+– La gestion d’exceptions avec try/except/else/finally
+– La création et l’utilisation d’exceptions personnalisées avec raise
