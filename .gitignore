@@ -1,1 +1,37 @@
-mon_envo/
+# --- Fichiers Python compilés ---
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+*.pyo
+
+# --- Environnements virtuels ---
+env/
+venv/
+ENV/
+.venv/
+
+# --- Fichiers temporaires ---
+*.log
+*.tmp
+*.bak
+*.swp
+
+# --- OS spécifiques ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Données générées par ton TP ---
+*.csv
+*.pkl
+
+# --- Config éditeur ---
+.vscode/
+.idea/
