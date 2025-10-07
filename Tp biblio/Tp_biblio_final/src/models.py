@@ -1,3 +1,4 @@
+from .exceptions import ErreurBibliotheque
 class Livre:
     def __init__(self, titre: str, auteur: str, isbm: str):
         self.titre = titre
@@ -19,22 +20,30 @@ class LivreNumerique(Livre):
 
 class Bibliotheque:
     def __init__(self, nom: str):
+        """Initialise une bibliothèque vide."""
         self.nom = nom
         self.livres = []
 
-    def ajouter_livre(self, livre: Livre):
+    def __len__(self):
+        return len(self.livres)
+
+    def ajouter_livre(self, livre):
+        # Vérifie les doublons d'ISBN
+        if any(existing.isbm == getattr(livre, 'isbm', None) for existing in self.livres):
+            raise ErreurBibliotheque("ISBN déjà existant", code_erreur=1001)
         self.livres.append(livre)
+        return True
 
     def supprimer_livre(self, isbm: str):
         self.livres = [livre for livre in self.livres if livre.isbm != isbm]
 
     def recherche_par_titre(self, titre: str):
         resultats = [livre for livre in self.livres if livre.titre == titre]
-        return resultats if resultats else None
+        return resultats
 
     def recherche_par_auteur(self, auteur: str):
         resultats = [livre for livre in self.livres if livre.auteur == auteur]
-        return resultats if resultats else None
+        return resultats
 
     def afficher_livres(self):
         if not self.livres:
