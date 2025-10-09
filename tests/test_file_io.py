@@ -12,14 +12,12 @@ def test_sauvegarde_et_rechargement_csv(tmp_path):
     csv_path = tmp_path / "livres.csv"
     b.sauvegarder_csv(str(csv_path))
 
-    # Le fichier doit exister et contenir un header + 2 lignes
     assert csv_path.exists()
     with csv_path.open("r", encoding="utf-8") as f:
         rows = list(csv.reader(f))
     assert rows[0] == ["Titre","Auteur","ISBN","TailleFichier"]
     assert len(rows) == 3
 
-    # Recharger
     b2 = BibliothequeAvecFichier("Reload")
     b2.charger_csv(str(csv_path))
     assert len(b2) == 2
@@ -39,9 +37,7 @@ def test_pickle_roundtrip(tmp_path):
 
 def test_erreurs_fichier(tmp_path):
     b = BibliothequeAvecFichier("Errors")
-    # CSV introuvable
     with pytest.raises(FichierIntrouvableErreur):
         b.charger_csv(str(tmp_path / "nope.csv"))
-    # Pickle introuvable
     with pytest.raises(FichierIntrouvableErreur):
         b.charger_pickle(str(tmp_path / "nope.pkl"))

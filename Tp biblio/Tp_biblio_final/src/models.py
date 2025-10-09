@@ -28,7 +28,6 @@ class Bibliotheque:
         return len(self.livres)
 
     def ajouter_livre(self, livre):
-        # Vérifie les doublons d'ISBN
         if any(existing.isbm == getattr(livre, 'isbm', None) for existing in self.livres):
             raise ErreurBibliotheque("ISBN déjà existant", code_erreur=1001)
         self.livres.append(livre)
